@@ -4,6 +4,8 @@ import { authenticateJWT } from '../middlewares/authMiddleware';
 
 const router = Router();
 
+
+
 // Protect these routes with authentication middleware
 router.post('/', authenticateJWT, createNote);
 router.get('/', authenticateJWT, getAllNotes);

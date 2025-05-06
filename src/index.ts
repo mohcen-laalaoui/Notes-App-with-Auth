@@ -1,18 +1,13 @@
-import express, { Request, Response } from 'express';
-import bodyParser from 'body-parser';
-import cors from 'cors';  
-import authRoutes from './routes/authRoutes';
-import notesRoutes from './routes/notesRoutes';
+import express from "express";
+import authRoutes from "./routes/authRoutes";; 
 
 const app = express();
+
 app.use(express.json());
-app.use(bodyParser.json());
-const PORT = 3000;
 
-app.use('/auth' , authRoutes)
+// Use the router for authentication routes
+app.use("/auth", authRoutes); // Now all /auth/signup and /auth/login will work
 
-
-
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+app.listen(3000, () => {
+  console.log("Server running on port 3000");
 });
